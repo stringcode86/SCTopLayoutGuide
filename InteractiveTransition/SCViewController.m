@@ -8,10 +8,13 @@
 
 #import "SCViewController.h"
 #import "SCTransition.h"
+#import "SCTopLayoutGuide.h"
 
 @interface SCViewController () <UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *squareView;
 @property (nonatomic) SCTransition *transition;
+@property (weak, nonatomic) IBOutlet SCTopLayoutGuide *scTopLayoutGuide;
+
 @end
 
 @implementation SCViewController
@@ -26,8 +29,16 @@
     UIScreenEdgePanGestureRecognizer *pop = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
     pop.edges = UIRectEdgeRight;
     [self.view addGestureRecognizer:pop];
+    
 }
 
+- (IBAction)pussedButton:(id)sender {
+    [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:YES];
+}
+
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
+}
 - (void)animateLayer:(CALayer *)layer withCompletion:(void(^)())block {
     
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];

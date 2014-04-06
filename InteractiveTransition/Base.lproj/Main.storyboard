@@ -21,18 +21,44 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNt-Vj-EUX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNt-Vj-EUX">
                                 <rect key="frame" x="278" y="518" width="35" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Push">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="SXJ-bc-eYG" kind="push" id="BbQ-Cz-YbB"/>
+                                    <action selector="pussedButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="yaj-kr-T60"/>
                                 </connections>
                             </button>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uoN-fe-Kgz" customClass="SCTopLayoutGuide">
+                                <rect key="frame" x="0.0" y="64" width="320" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.023573720190000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="0G2-XI-Awv"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="131" placeholderIntrinsicHeight="96" translatesAutoresizingMaskIntoConstraints="NO" id="r8B-uE-JYX">
+                                <rect key="frame" x="0.0" y="64" width="131" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.023573720190000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="NN9-Fc-N48"/>
+                                    <constraint firstAttribute="height" constant="96" id="PC7-VW-6De"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uoN-fe-Kgz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="BJq-F2-6PD"/>
+                            <constraint firstItem="r8B-uE-JYX" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Ift-Q9-KBT"/>
+                            <constraint firstItem="uoN-fe-Kgz" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" placeholder="YES" id="KhS-en-icN"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="fNt-Vj-EUX" secondAttribute="bottom" constant="20" id="QEJ-uh-Su9"/>
+                            <constraint firstAttribute="trailing" secondItem="uoN-fe-Kgz" secondAttribute="trailing" id="lId-k1-f1G"/>
+                            <constraint firstAttribute="trailing" secondItem="fNt-Vj-EUX" secondAttribute="trailing" constant="7" id="rSV-ls-cTq"/>
+                            <constraint firstItem="uoN-fe-Kgz" firstAttribute="top" secondItem="r8B-uE-JYX" secondAttribute="top" id="xIx-2J-ZB4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="1" id="HB4-w5-KO0">
                         <barButtonItem key="rightBarButtonItem" title="Push" id="eWv-7b-3d8">
@@ -42,6 +68,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="scTopLayoutGuide" destination="uoN-fe-Kgz" id="iQG-rt-qYy"/>
                         <outlet property="squareView" destination="RWE-8F-a1l" id="1bq-Wq-U9v"/>
                     </connections>
                 </viewController>
@@ -68,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="972" y="138"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Top Layout Guide Navigation View Controller-->
         <scene sceneID="eIG-Bg-hRJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BY4-9b-NJT" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BY4-9b-NJT" customClass="SCTopLayoutGuideNavigationViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="q2G-cN-JMI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -92,7 +119,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="z41-c8-Wi4"/>
-    </inferredMetricsTieBreakers>
 </document>
